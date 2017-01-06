@@ -1,1 +1,1 @@
-(Udacity / JavaScript Design Pattern) practice project for MV* framework, Bootstrap 4, jQuery and o-o features of JavaScript ES6
+(Udacity / JavaScript Design Pattern) practice project for MV* framework, Bootstrap 4, jQuery and Object-Oriented features of JavaScript ES6
