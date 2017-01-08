@@ -47,11 +47,11 @@ let model = {
 
     setCatByIndex: function (catIndex, selectedCatName, newCatImg, newCatCount) {
         Object.assign(this.cats[catIndex],
-        {
-            name: selectedCatName,
-            imgSrc: newCatImg,
-            clickCount: newCatCount
-        });
+            {
+                name: selectedCatName,
+                imgSrc: newCatImg,
+                clickCount: newCatCount
+            });
     }
 };
 
@@ -72,7 +72,7 @@ let controller = {
     saveData: function (selectedCatName, newCatImg, newCatCount) {
         let selectedCatIndex = model.getCatIndexByName(selectedCatName);
         model.setCatByIndex(selectedCatIndex, selectedCatName, newCatImg, newCatCount);
-        tabView.render(selectedCatIndex);
+        tabView.renderTab(selectedCatIndex);
     }
 };
 
@@ -123,7 +123,7 @@ let tabView = {
         });
     },
 
-    render: function (selectedCatIndex) {
+    renderTab: function (selectedCatIndex) {
         let cat = model.getCatByIndex(selectedCatIndex);
         let selectedCatID = "#" + cat.id;
         $(selectedCatID + ">h2").text(cat.name);
@@ -135,7 +135,7 @@ let tabView = {
 let buttonView = {
 
     init: function () {
-        $("#admin-button").click(function () { 
+        $("#admin-button").click(function () {
             formView.toggleVisibility();
         });
     }
@@ -145,10 +145,10 @@ let formView = {
 
     init: function () {
         $("#input-form").addClass("invisible");
-        $("#cancel-button").click(function () { 
+        $("#cancel-button").click(function () {
             formView.hide();
         });
-        $("#save-button").click(function () { 
+        $("#save-button").click(function () {
             let selectedCat = $("#cat-name-change").val();
             let newCatImg = $("#cat-img-change").val();
             let newCatCount = $("#cat-count-change").val();
@@ -165,14 +165,14 @@ let formView = {
                         </div>`;
             $("main").append(alert);
             $(".alert").alert();
-            window.setTimeout(function () {$(".alert").alert('close');}, 2000);
+            window.setTimeout(function () { $(".alert").alert('close'); }, 2000);
         });
     },
 
     toggleVisibility: function () {
         $("#input-form").toggleClass("invisible");
     },
-    
+
     show: function () {
         $("#input-form").removeClass("invisible");
     },
